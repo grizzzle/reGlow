@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1058454871392",
+    "project_id": "reglow-42b53",
+    "storage_bucket": "reglow-42b53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058454871392:android:5d1126fcbbd429ec9e9205",
+        "android_client_info": {
+          "package_name": "com.trapta.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkdVo2qyNGZT03jHAw9_9ZGXzKXOulj6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
