@@ -45,7 +45,7 @@ export default function App({}) {
             </View>
           </View>
         </View>
-        <Pressable style={styles.button} onPress={() => navigation.navigate('Login')}>
+        <Pressable style={styles.button} onPress={() => navigation.navigate('tabs')}>
           {({ pressed }) => (
             <Text style={[styles.buttonText, { opacity: pressed ? 0.5 : 1 }]}>JOIN NOW</Text>
           )}
