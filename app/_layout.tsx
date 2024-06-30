@@ -4,11 +4,21 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import LoginScreen from './Login';
+import HomeScreen from './tabs/home';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AuthenticatedScreen from './tabs/home';
+
+
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+//const Stack = createNativeStackNavigator();
+
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -16,6 +26,7 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
+  
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
@@ -29,8 +40,11 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="index"/>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="index" options={{ headerShown: true }}/>
+        <Stack.Screen name="Login" options={{ headerShown: true }}/>
+        <Stack.Screen name="tabs" options={{ headerShown: true }}/>
+        <Stack.Screen name="entryLog" options={{ headerShown: true }} />
+        <Stack.Screen name="SkinQuiz" options={{ headerShown: true }} />
         <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>

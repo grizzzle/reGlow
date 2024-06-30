@@ -1,9 +1,8 @@
-import { Tabs } from 'expo-router';
 import React from 'react';
-
+import { Tabs } from 'expo-router';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import AuthenticatedScreen from './home';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -16,7 +15,8 @@ export default function TabLayout() {
         headerShown: false,
       }}>
       <Tabs.Screen
-        name="Login"
+        name="home"
+       // component={AuthenticatedScreen}
         options={{
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
@@ -52,6 +52,5 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
-    
   );
 }

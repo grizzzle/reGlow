@@ -13,11 +13,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.trapta.myapp"
+      "bundleIdentifier": "com.trapta.myapp",
+      "googleServicesFile": "./app/placeholder-GoogleService-Info.plist"
     },
     "android": {
-      "googleServicesFile": "./google-services.json",
+      "googleServicesFile": "./app/google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -50,6 +50,9 @@
     "runtimeVersion": "1.0.0",
     "updates": {
       "url": "https://u.expo.dev/2cf1ee7a-5768-4d95-94b7-3a3200780b24"
+    },
+    "ios": {
+      "bundleIdentifier": "com.trapta.myapp"
     }
   }
 }

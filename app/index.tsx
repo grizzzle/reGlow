@@ -2,21 +2,8 @@ import React, { useState, useEffect } from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Pressable} from 'react-native';
 import { useNavigation } from 'expo-router';
-import { initializeApp } from '@firebase/app';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from '@firebase/auth';
 import BackgroundLayout from './BackgroundLayout';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDaODBb8Tw-OOK_JR17liU9rAZetd8-lsg",
-  authDomain: "reglow-42b53.firebaseapp.com",
-  projectId: "reglow-42b53",
-  storageBucket: "reglow-42b53.appspot.com",
-  messagingSenderId: "1058454871392",
-  appId: "1:1058454871392:web:3bd326e98099d32c9e9205",
-  measurementId: "G-07C6QLFK3L"
-};
-
-const app = initializeApp(firebaseConfig);
 
 const BackgroundImage = require('./assets/images/bg.jpeg');
 const PlaceholderImage = require('./assets/images/bottle.jpeg');
@@ -45,7 +32,7 @@ export default function App({}) {
             </View>
           </View>
         </View>
-        <Pressable style={styles.button} onPress={() => navigation.navigate('tabs')}>
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Login')}>
           {({ pressed }) => (
             <Text style={[styles.buttonText, { opacity: pressed ? 0.5 : 1 }]}>JOIN NOW</Text>
           )}

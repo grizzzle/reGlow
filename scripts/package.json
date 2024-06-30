@@ -1,0 +1,11 @@
+{
+  "name": "my-scripts",
+  "version": "1.0.0",
+  "main": "upload.js",
+  "scripts": {
+    "start": "node upload.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.2.0"
+  }
+}
