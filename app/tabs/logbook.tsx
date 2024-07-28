@@ -3,44 +3,47 @@ import { View, Text, FlatList, TouchableOpacity, StyleSheet, ActivityIndicator }
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
-import {auth} from '../firebase'; 
+import { useLogbook } from '../LogbookContext';
 
 const LogbookOverview = () => {
   const navigation = useNavigation();
-  const [entries, setEntries] = useState([]);
+  const { entries, fetchEntries } = useLogbook();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchEntries = async () => {
-      try {
-        const user = auth.currentUser;
-        const userId = user ? user.uid : null;
-
-        if (!userId) {
-          console.error('User not authenticated');
-          return;
-        }
-
-        const response = await axios.get('http://localhost:3000/logbookEntries', {
-          params: { userId }
-        }); 
-        setEntries(response.data);
-      } catch (error) {
-        console.error('Error fetching logbook entries:', error);
-      } finally {
-        setLoading(false);
-      }
+    const loadEntries = async () => {
+      setLoading(true);
+      await fetchEntries();
+      setLoading(false);
     };
 
-    fetchEntries();
+    loadEntries();
   }, []);
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.logItem} onPress={() => navigation.navigate('entryLog', { date: item.date })}>
-      <Text style={styles.logText}>{item.date}</Text>
-      <Text style={styles.logText}>Diet: {item.diet.join(', ')}</Text>
-      <Text style={styles.logText}>Sleep Quality: {item.sleepQuality}</Text>
-    </TouchableOpacity>
+    <View style={styles.logItem}>
+      <TouchableOpacity
+        style={styles.entryDetails}
+        onPress={() => navigation.navigate('entryLog', { 
+          id: item.id, 
+          date: item.date, 
+          diet: item.diet, 
+          sleepQuality: item.sleepQuality, 
+          stressLevel: item.stressLevel,
+          exercise: item.exercise,
+          skinCondition: item.skinCondition,
+        })}
+      >
+        <Text style={styles.logText}>{item.date}</Text>
+        <Text style={styles.logText}>Diet: {item.diet.join(', ')}</Text>
+        <Text style={styles.logText}>Sleep Quality: {item.sleepQuality}</Text>
+        <Text style={styles.logText}>Stress Level: {item.stressLevel}</Text>
+        <Text style={styles.logText}>Exercise: {item.exercise}</Text>
+        {item.skinCondition && Object.keys(item.skinCondition).map((condition) => (
+          <Text key={condition} style={styles.logText}>{condition.charAt(0).toUpperCase() + condition.slice(1)}: {item.skinCondition[condition]}</Text>
+        ))}
+      </TouchableOpacity>
+    </View>
   );
 
   if (loading) {
@@ -89,11 +92,17 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   logItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 20,
     marginVertical: 5,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#ddd',
+    justifyContent: 'space-between',
+  },
+  entryDetails: {
+    flex: 1,
   },
   logText: {
     fontSize: 18,

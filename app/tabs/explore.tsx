@@ -35,7 +35,7 @@ export default function ExploreScreen() {
     if (item.empty) {
       return <View style={[styles.card, styles.invisible]} />;
     }
-    return <ProductCard name={item.name} brand={item.brand} image={item.image} />;
+    return <ProductCard name={item.name} brand={item.brand} image={item.image} product={item} />;
   };
 
   return (
@@ -43,7 +43,7 @@ export default function ExploreScreen() {
       <FlatList
         data={formatData(products, numColumns)}
         renderItem={renderItem}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(item, index) => index}
         numColumns={numColumns}
       />
     </View>

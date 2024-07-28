@@ -1,25 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
-import axios from 'axios';
+import { useProduct } from '../ProductContext';
 
 const HomeScreen = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/my-products'); // Ensure the URL is correct
-        setProducts(response.data);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
+  const { homeProducts } = useProduct();
 
   const renderItem = ({ item }) => (
     <View style={styles.productCard}>
@@ -29,23 +13,14 @@ const HomeScreen = () => {
     </View>
   );
 
-  if (loading) {
-    return (
-      <View style={styles.loaderContainer}>
-        <Text>Loading...</Text>
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Home</Text>
       <Text style={styles.subtitle}>Your Current Product Rotation</Text>
       <FlatList
-        data={products}
+        data={homeProducts}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        horizontal
         contentContainerStyle={styles.productList}
       />
     </View>
@@ -69,12 +44,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   productList: {
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
   productCard: {
-    width: 150,
+    width: '100%',
+    height: 200,  // Adjust height as necessary
     padding: 10,
-    marginRight: 15,
+    marginBottom: 15,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#ddd',
@@ -95,11 +71,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#888',
     textAlign: 'center',
-  },
-  loaderContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 
