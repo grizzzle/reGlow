@@ -1,50 +1,28 @@
-# Welcome to your Expo app 👋
+# Welcome to ReGlow!! 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+To test this app:
 
-1. Install dependencies
+Deployment
+This setup assumes you are able to open an app through Expo Go on an Android or iOS device. 
 
-   ```bash
-   npm install
-   ```
+It also assumes you have installed Git and are connected to a GitHub account. For more information visit Git | NUS Hackers Wiki
 
-2. Start the app
+Clone the GitHub repository. On Terminal / Command Prompt, enter the following command. Replace ‘new-folder’ with a folder name of your choice. Ensure that you have installed Git beforehand.
+git clone https://github.com/grizzzle/reGlow.git new-folder
 
-   ```bash
-    npx expo start
-   ```
+On Terminal/Command Prompt, enter the Frontend directory using the command
+cd new-folder
 
-In the output, you'll find options to open the app in a
+Install Expo using the command
+npm install expo
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Bundle ReGlow with the following command
+npx expo start
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+If using Expo Go on mobile device, press 's' before scanning the QR code generated to open the project. 
 
-## Get a fresh project
+At the login page, create a new account by signing up.
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Enjoy testing the app!
