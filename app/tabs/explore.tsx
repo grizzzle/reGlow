@@ -11,7 +11,7 @@ export default function ExploreScreen() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/products'); // Adjust the URL as needed
+        const response = await axios.get('https://reglow-b1f394d7364a.herokuapp.com/'); // Adjust the URL as needed
         setProducts(response.data);
       } catch (error) {
         console.error(error);

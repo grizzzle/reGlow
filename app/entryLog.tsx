@@ -38,7 +38,7 @@ const LogbookEntry = () => {
       setDiet([...diet, option]);
     }
   };
-  
+
   const toggleUsedProduct = (productId) => {
     if (usedProducts.includes(productId)) {
       setUsedProducts(usedProducts.filter((id) => id !== productId));
@@ -76,10 +76,10 @@ const LogbookEntry = () => {
     try {
       if (entryId) {
         // Update existing entry
-        await axios.put(`http://localhost:3000/logbookEntries/${entryId}`, logEntry);
+        await axios.put(`https://reglow-b1f394d7364a.herokuapp.com/logbookEntries/${entryId}`, logEntry);
       } else {
         // Create new entry
-        await axios.post('http://localhost:3000/logbookEntries', logEntry);
+        await axios.post('https://reglow-b1f394d7364a.herokuapp.com/logbookEntries', logEntry);
       }
       alert('Saved successfully!');
       await fetchEntries(); // Fetch latest entries
@@ -91,7 +91,7 @@ const LogbookEntry = () => {
 
   const deleteLogEntry = async () => {
     try {
-      await axios.delete(`http://localhost:3000/logbookEntries/${entryId}`);
+      await axios.delete(`https://reglow-b1f394d7364a.herokuapp.com/logbookEntries/${entryId}`);
       alert('Deleted successfully!');
       await fetchEntries(); // Fetch latest entries
       navigation.navigate('logbook'); // Ensure this matches your route name

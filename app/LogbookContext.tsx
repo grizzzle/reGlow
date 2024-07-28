@@ -10,7 +10,7 @@ export const LogbookProvider = ({ children }) => {
   const fetchEntries = async () => {
     const user = auth.currentUser;
     if (user) {
-      const response = await axios.get('http://localhost:3000/logbookEntries', {
+      const response = await axios.get('https://reglow-b1f394d7364a.herokuapp.com/logbookEntries', {
         params: { userId: user.uid }
       });
       setEntries(response.data);
