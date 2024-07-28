@@ -5,6 +5,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 To test this app:
 
 Deployment
+
 This setup assumes you are able to open an app through Expo Go on an Android or iOS device. 
 
 It also assumes you have installed Git and are connected to a GitHub account. For more information visit Git | NUS Hackers Wiki
