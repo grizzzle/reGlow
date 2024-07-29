@@ -26,7 +26,7 @@ At the login page of the app, create a new account by signing up.
 Clone the frontend GitHub repository. On Terminal / Command Prompt, enter the following command while replacing ‘new-server’ with a folder name of your choice: 
 `git clone https://github.com/grizzzle/reglow-backend.git new-server`
 
-On Terminal/Command Prompt, enter the backend directory using the `command cd new-server`
+On Terminal/Command Prompt, enter the backend directory using the command `cd new-server`
 
 Install the necessary dependencies using the command `npm install`
 
